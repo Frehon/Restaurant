@@ -1,1 +1,6 @@
-<p>menu works!</p>
+<div class="menu-list">
+  <div class="border" *ngFor="let menuItem of menuItems"  (click)="selectMenuItem(menuItem)">
+    <label class="menu-item-label">{{menuItem.name}}</label>
+    <app-menu-details *ngIf="menuItem === this.selectedItem" [selectedItem]="selectedItem"></app-menu-details>
+  </div>
+</div>
