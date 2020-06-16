@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MenuItem} from '../model/menu-item';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -17,7 +18,7 @@ export class MenuComponent implements OnInit {
     new MenuItem('Pad Thai', 'Super tasty meal from Thailand', false, 25),
   ];
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.selectedItem = this.menuItems[0];
@@ -25,5 +26,9 @@ export class MenuComponent implements OnInit {
 
   selectMenuItem(menuItem: MenuItem) {
     this.selectedItem = menuItem;
+  }
+
+  navigateToInfo() {
+    this.router.navigateByUrl('/info').catch(err => console.error(err));
   }
 }

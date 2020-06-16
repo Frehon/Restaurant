@@ -1,4 +1,7 @@
-<div class="menu-list">
+<div class="center menu-list">
+  <div class="center">
+    <button (click)="this.navigateToInfo()">Informacje o restauracji</button>
+  </div>
   <div class="border" *ngFor="let menuItem of menuItems"  (click)="selectMenuItem(menuItem)">
     <label class="menu-item-label">{{menuItem.name}}</label>
     <app-menu-details *ngIf="menuItem === this.selectedItem" [selectedItem]="selectedItem"></app-menu-details>
